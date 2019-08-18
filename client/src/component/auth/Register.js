@@ -1,24 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import AuthContext from '../../context/auth/AuthContext';
+import AlertContext from '../../context/alert/AlertContext';
 
-const Register = () => {
+const Register = props => {
+  const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
+
+  const { register, error, clearErrors, isAuthenticated } = authContext;
+  const { setAlert } = alertContext;
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/dashboard');
+    }
+
+    if (error === 'User already exists') {
+      setAlert(error, 'danger');
+      clearErrors();
+    }
+    //eslint-disable-next-line
+  }, [error, isAuthenticated, props.history]);
+
   const [user, setUser] = useState({
     name: '',
     email: '',
     Phone: '',
-    username: '',
     password: '',
     password1: '',
     checkbox: false
   });
 
-  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
-
   const { name, email, phone, password, password1 } = user;
+
+  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
     if (password !== password1) {
-      console.log('Password does not Match');
+      setAlert('Password does not Match', 'danger');
+    } else {
+      register({
+        name,
+        email,
+        phone,
+        password
+      });
     }
   };
 
@@ -51,14 +77,6 @@ const Register = () => {
             type="text"
             placeholder="Phone Number"
             name="phone"
-            onChange={onChange}
-            required
-            style={styleText}
-          />
-          <input
-            type="text"
-            placeholder="Username"
-            name="username"
             onChange={onChange}
             required
             style={styleText}
@@ -105,7 +123,7 @@ const Register = () => {
 const StyleShadow = {
   boxShadow: '1px 1px 3px 0px',
   margin: '50px auto',
-  width: '50em'
+  width: '40em'
 };
 
 const styleText = {

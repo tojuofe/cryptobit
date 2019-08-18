@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/AuthContext';
+
 import Logo from './cryptobit.png';
 
 const Navbar = () => {
+  const authContext = useContext(AuthContext);
+
+  const { isAuthenticated, logout, user } = authContext;
+
+  const onLogout = () => {
+    logout();
+  };
+
   const AuthLink = (
-    <nav className="navbar bg-primary">
+    <Fragment>
       <h1>
         <img
           src={Logo}
@@ -31,14 +41,15 @@ const Navbar = () => {
             className="btn btn-dark"
             style={{ backgroundColor: '#478192' }}
             value="Logout"
+            onClick={onLogout}
           />
         </Link>
       </div>
-    </nav>
+    </Fragment>
   );
 
-  return (
-    <nav className="navbar bg-primary">
+  const GuestLink = (
+    <Fragment>
       <h1>
         <img
           src={Logo}
@@ -85,6 +96,12 @@ const Navbar = () => {
           />
         </Link>
       </div>
+    </Fragment>
+  );
+
+  return (
+    <nav className="navbar bg-primary">
+      {isAuthenticated ? AuthLink : GuestLink}
     </nav>
   );
 };
