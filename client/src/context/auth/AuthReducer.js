@@ -14,9 +14,9 @@ export default (state, action) => {
     case USER_LOADED:
       return {
         ...state,
-        user: action.payload,
         isAuthenticated: true,
-        loading: false
+        loading: false,
+        user: action.payload
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:

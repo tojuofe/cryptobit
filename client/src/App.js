@@ -5,6 +5,7 @@ import './App.css';
 // Context Api
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
+import setAuthToken from './utils/SetAuthToken';
 
 // Component
 import Navbar from './component/layout/Navbar';
@@ -15,6 +16,10 @@ import Login from './component/auth/Login';
 import UserDashboard from './component/pages/UserDashboard';
 import Alert from './component/layout/Alert';
 import PrivateRoute from './component/routing/PrivateRoute';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 const App = () => {
   return (
     <AuthState>
@@ -24,11 +29,11 @@ const App = () => {
             <Navbar />
             <Alert />
             <Switch>
-              <Route exact path="/" component={Home} />
+              <PrivateRoute exact path="/" component={UserDashboard} />
+              <Route exact path="/home" component={Home} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              <PrivateRoute exact path="/dashboard" component={UserDashboard} />
             </Switch>
           </div>
         </Router>

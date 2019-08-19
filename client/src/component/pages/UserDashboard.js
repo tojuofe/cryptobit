@@ -1,48 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import Logo from '../layout/cryptobit.png';
 
 const UserDashboard = ({ icon, title }) => {
   return (
     <div>
-      <nav className="navbar bg-primary">
-        <h1>
-          <img
-            src={Logo}
-            alt="logo.."
-            style={{ width: '150px', height: '50px' }}
-          />
-        </h1>
-        <ul>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <a href="#deposit-Modal">Deposit</a>
-          </li>
-          <li>
-            <a href="#withdraw-Modal">Withdraw</a>
-          </li>
-          <li>
-            <a href="#ticket-Modal">Support Ticket</a>
-          </li>
-          <li>
-            <a href="#profile-Modal">Profile</a>
-          </li>
-        </ul>
-        <div>
-          <Link to="#!">
-            <input
-              type="submit"
-              className="btn btn-dark"
-              style={{ backgroundColor: '#478192' }}
-              value="Logout"
-            />
-          </Link>
-        </div>
-      </nav>
-
       <div className="container grid-2">
         <div
           className="card "

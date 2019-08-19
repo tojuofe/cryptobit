@@ -22,19 +22,29 @@ const Navbar = () => {
           style={{ width: '150px', height: '50px' }}
         />
       </h1>
-      <ul>
-        <li>
-          <Link to="/dashboard">Dashboard</Link>
-        </li>
-
-        <li>
-          <Link to="#!">Withdraw</Link>
-        </li>
-        <li>
-          <Link to="#!">Profile</Link>
-        </li>
-      </ul>
       <div>
+        <ul>
+          <li>
+            <Link to="/">Dashboard</Link>
+          </li>
+          <li>
+            <a href="#deposit-Modal">Deposit</a>
+          </li>
+          <li>
+            <a href="#withdraw-Modal">Withdraw</a>
+          </li>
+          <li>
+            <a href="#ticket-Modal">Support Ticket</a>
+          </li>
+          <li>
+            <a href="#profile-Modal">Profile</a>
+          </li>
+        </ul>
+      </div>
+      <div className="d-flex">
+        <ul style={{ marginTop: '2em' }}>
+          <li>Hello {user && user.name}</li>
+        </ul>
         <Link to="#!">
           <input
             type="submit"
@@ -59,7 +69,7 @@ const Navbar = () => {
       </h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </li>
         <li>
           <a href="#service">Services</a>
