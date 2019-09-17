@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import AuthContext from '../../context/auth/AuthContext';
 
-const UserDashboard = ({ icon, title }) => {
+const UserDashboard = () => {
+  const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    authContext.loadUser();
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <div>
       <div className="container grid-2">
         <div
-          className="card "
+          className="card"
           style={{ borderRadius: '10px', padding: '34px 40px 39px' }}
         >
           <div className="d-flex">
@@ -41,30 +49,7 @@ const UserDashboard = ({ icon, title }) => {
           </div>
         </div>
       </div>
-      {/* Deposit */}
-      <div id="deposit-Modal" className="modalDialog">
-        <div>
-          <a href="#close" title="Close" className="close">
-            X
-          </a>
-          <h2>Deposit</h2>
-          <p>Copy the Bitcoin Account Number Below</p>
-          <p>The Bitcoin Wallet No Comes Here.....</p>
-          <form className="form">
-            <textarea
-              placeholder="Enter Prove of Payment"
-              style={{
-                fontFamily: 'Roboto',
-                height: '100px',
-                borderRadius: '5px'
-              }}
-              name="text"
-              required
-            />
-            <input type="submit" className="btn btn-block btn-primary" />
-          </form>
-        </div>
-      </div>
+
       {/* Withdraw */}
       <div id="withdraw-Modal" className="modalDialog">
         <div>

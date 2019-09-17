@@ -18,6 +18,7 @@ app.get('/', (req, res) => res.json({ msg: 'Welcome from CryptoBit...' }));
 // Define Routes
 app.use('/api/admin', require('./routes/Admin'));
 app.use('/api/authadmin', require('./routes/authAdmin'));
+app.use('/api/walletno', require('./routes/WalletNo'));
 app.use('/api/user', require('./routes/User'));
 app.use('/api/auth', require('./routes/Auth'));
 app.use('/api/ticket', require('./routes/Ticket'));

@@ -1,20 +1,39 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/Auth');
+const Deposit = require('../model/Deposit');
 
 //@route        Post api/deposit
 //@desc         Deposit an amount
 //@access       Private
-
-router.post('/', (req, res) => {
-  res.send('Deposit an Amount');
+router.post('/', auth, async (req, res) => {
+  const { proof } = req.body;
+  try {
+    const deposit = new Deposit({
+      proof,
+      user: req.user.id
+    });
+    const newDeposit = await deposit.save();
+    res.json(newDeposit);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 //@route        Get api/deposit
 //@desc         Get the amount
 //@access       Private
-
-router.get('/', (req, res) => {
-  res.send('Get the Amount');
+router.get('/', auth, async (req, res) => {
+  try {
+    const deposit = await Deposit.find({ user: req.user.id }).sort({
+      date: -1
+    });
+    res.json(deposit);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
 });
 
 module.exports = router;
