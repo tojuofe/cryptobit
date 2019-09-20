@@ -40,7 +40,7 @@ router.get('/', auth, async (req, res) => {
 
 //@route        Get api/walletNo/getuserwallet
 //@desc         Get Wallet Number
-//@access       Private
+//@access       Public
 
 router.get('/getuserwallet', async (req, res) => {
   try {

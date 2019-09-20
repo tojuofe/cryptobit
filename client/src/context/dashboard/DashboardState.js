@@ -2,28 +2,47 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import DashboardContext from './DashboardContext';
 import DashboardReducer from './DashboardReducer';
-import { GET_USER_WALLET, WALLET_ERROR } from '../types';
+import { REGISTER_DEPOSIT, DEPOSIT_LOADED, DEPOSIT_ERROR } from '../types';
 
 const DashboardState = props => {
   const initialState = {
-    wallet: null,
-    clearErrors: null
+    deposits: [],
+    isAuthenticated: null,
+    loading: true,
+    clearsErrors: null
   };
 
   const [state, dispatch] = useReducer(DashboardReducer, initialState);
 
-  // Get User Wallet
-  const getUserWallet = async () => {
+  // Register Deposit
+  const addDeposit = async proof => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
     try {
-      const res = await axios.get('/api/walletno/getuserwallet');
+      const res = await axios.post('api/deposit', proof, config);
+
+      dispatch({ type: REGISTER_DEPOSIT, payload: res.data });
+    } catch (err) {
+      dispatch({ type: DEPOSIT_ERROR, payload: err.response.msg });
+    }
+  };
+
+  // Get User Deposit
+  const getUserDeposit = async () => {
+    try {
+      const res = await axios.get('/api/deposit');
 
       dispatch({
-        type: GET_USER_WALLET,
+        type: DEPOSIT_LOADED,
         payload: res.data
       });
     } catch (err) {
       dispatch({
-        type: WALLET_ERROR,
+        type: DEPOSIT_ERROR,
         payload: err.response.msg
       });
     }
@@ -32,9 +51,10 @@ const DashboardState = props => {
   return (
     <DashboardContext.Provider
       value={{
-        wallet: state.wallet,
+        deposits: state.deposits,
         clearErrors: state.clearErrors,
-        getUserWallet
+        getUserDeposit,
+        addDeposit
       }}
     >
       {props.children}

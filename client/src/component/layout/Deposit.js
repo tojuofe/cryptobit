@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import Wallet from './Wallet';
 
 const Deposit = () => {
   return (
@@ -10,9 +11,9 @@ const Deposit = () => {
           </a>
           <h2>Deposit</h2>
           <p>Copy the Bitcoin Account Number Below</p>
-          <p style={{ color: 'blue', fontFamily: 'Century Gothic' }}>
-            15KXp4mDRMTqwLqNrZjiVFDtk3cnE7FRyB
-          </p>
+          <div style={{ color: 'blue', fontFamily: 'Century Gothic' }}>
+            <Wallet />
+          </div>
           <form className="form">
             <textarea
               placeholder="Enter Prove of Payment"

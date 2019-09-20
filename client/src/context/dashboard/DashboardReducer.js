@@ -1,14 +1,20 @@
-import { GET_USER_WALLET, WALLET_ERROR } from '../types';
+import { REGISTER_DEPOSIT, DEPOSIT_LOADED, DEPOSIT_ERROR } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
-    case GET_USER_WALLET:
+    case DEPOSIT_LOADED:
       return {
         ...state,
-        wallet: action.payload,
+        deposits: action.payload,
         loading: false
       };
-    case WALLET_ERROR:
+    case REGISTER_DEPOSIT:
+      return {
+        ...state,
+        deposits: [action.payload, ...state.deposits],
+        loading: false
+      };
+    case DEPOSIT_ERROR:
       return {
         ...state,
         error: action.payload

@@ -11,7 +11,9 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
+  WALLET_LOADED,
+  WALLET_ERROR
 } from '../types';
 
 const AuthState = props => {
@@ -20,6 +22,8 @@ const AuthState = props => {
     isAuthenticated: null,
     loading: true,
     user: null,
+    wallets: [],
+    clearsErrors: null,
     error: null
   };
 
@@ -43,6 +47,22 @@ const AuthState = props => {
     }
   };
 
+  // Get User Wallet
+  const getUserWallet = async () => {
+    try {
+      const res = await axios.get('/api/walletno/getuserwallet');
+
+      dispatch({
+        type: WALLET_LOADED,
+        payload: res.data
+      });
+    } catch (err) {
+      dispatch({
+        type: WALLET_ERROR
+      });
+    }
+  };
+
   // Register User
   const register = async formData => {
     const config = {
@@ -60,6 +80,7 @@ const AuthState = props => {
       });
 
       loadUser();
+      getUserWallet();
     } catch (err) {
       dispatch({
         type: REGISTER_FAIL,
@@ -85,6 +106,7 @@ const AuthState = props => {
       });
 
       loadUser();
+      getUserWallet();
     } catch (err) {
       dispatch({
         type: LOGIN_FAIL,
@@ -106,9 +128,12 @@ const AuthState = props => {
         isAuthenticated: state.isAuthenticated,
         loading: state.loading,
         user: state.user,
+        wallets: state.wallets,
+        clearsErrors: state.clearErrors,
         error: state.error,
         register,
         loadUser,
+        getUserWallet,
         clearErrors,
         login,
         logout

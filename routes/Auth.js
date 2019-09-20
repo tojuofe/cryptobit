@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator/check');
 
 const auth = require('../middleware/Auth');
-const Admin = require('../model/Admin');
 const User = require('../model/User');
 
 //@route        Get api/auth

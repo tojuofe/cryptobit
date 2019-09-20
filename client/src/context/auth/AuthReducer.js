@@ -6,11 +6,19 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CLEAR_ERRORS
+  CLEAR_ERRORS,
+  WALLET_LOADED,
+  WALLET_ERROR
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
+    case WALLET_LOADED:
+      return {
+        ...state,
+        wallets: action.payload,
+        loading: false
+      };
     case USER_LOADED:
       return {
         ...state,
@@ -41,6 +49,7 @@ export default (state, action) => {
         error: action.payload
       };
     case CLEAR_ERRORS:
+    case WALLET_ERROR:
       return {
         ...state,
         error: null

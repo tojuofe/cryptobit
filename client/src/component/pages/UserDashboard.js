@@ -1,12 +1,21 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import AuthContext from '../../context/auth/AuthContext';
+import DashboardContext from '../../context/dashboard/DashboardContext';
+
+import DepositItem from '../layout/DepositItem';
 
 const UserDashboard = () => {
   const authContext = useContext(AuthContext);
+  const dashboardContext = useContext(DashboardContext);
+
+  const { loadUser, getUserWallet } = authContext;
+  const { getUserDeposit } = dashboardContext;
 
   useEffect(() => {
-    authContext.loadUser();
+    loadUser();
+    getUserWallet();
+    getUserDeposit();
     //eslint-disable-next-line
   }, []);
 
@@ -48,6 +57,10 @@ const UserDashboard = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="container">
+        <DepositItem />
       </div>
 
       {/* Withdraw */}
