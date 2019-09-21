@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import Wallet from './Wallet';
+import DashboardContext from '../../context/dashboard/DashboardContext';
 
 const Deposit = () => {
+  const dashboardContext = useContext(DashboardContext);
+
+  const { addDeposit } = dashboardContext;
+
+  const [deposit, setdeposit] = useState({
+    proof: '',
+    status: 'Pending'
+  });
+
+  const { proof, status } = deposit;
+
+  const onChange = e => setdeposit({ [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    addDeposit({
+      proof,
+      status
+    });
+    setdeposit({ proof: '' });
+  };
+
   return (
     <div>
       <div id="deposit-Modal" className="modalDialog">
@@ -14,7 +37,7 @@ const Deposit = () => {
           <div style={{ color: 'blue', fontFamily: 'Century Gothic' }}>
             <Wallet />
           </div>
-          <form className="form">
+          <form className="form" onSubmit={onSubmit}>
             <textarea
               placeholder="Enter Prove of Payment"
               style={{
@@ -22,7 +45,9 @@ const Deposit = () => {
                 height: '100px',
                 borderRadius: '5px'
               }}
-              name="text"
+              name="proof"
+              value={proof}
+              onChange={onChange}
               required
             />
             <input type="submit" className="btn btn-block btn-primary" />

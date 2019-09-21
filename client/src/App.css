@@ -380,9 +380,13 @@ img {
 
 .btn-primary,
 .bg-primary,
-.badge-primary,
 .alert-primary {
   background: var(--primary-color);
+  color: #fff;
+}
+
+.badge-primary {
+  background: var(--danger-color);
   color: #fff;
 }
 

@@ -7,10 +7,11 @@ const Deposit = require('../model/Deposit');
 //@desc         Deposit an amount
 //@access       Private
 router.post('/', auth, async (req, res) => {
-  const { proof } = req.body;
+  const { proof, status } = req.body;
   try {
     const deposit = new Deposit({
       proof,
+      status,
       user: req.user.id
     });
     const newDeposit = await deposit.save();

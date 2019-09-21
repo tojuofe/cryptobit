@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import AuthContext from '../../context/auth/AuthContext';
 import DashboardContext from '../../context/dashboard/DashboardContext';
 
-import DepositItem from '../layout/DepositItem';
+import DepositList from '../layout/DepositList';
 
 const UserDashboard = () => {
   const authContext = useContext(AuthContext);
@@ -60,7 +60,7 @@ const UserDashboard = () => {
       </div>
 
       <div className="container">
-        <DepositItem />
+        <DepositList />
       </div>
 
       {/* Withdraw */}
