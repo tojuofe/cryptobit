@@ -15,6 +15,7 @@ import Contact from './component/pages/Contact';
 import Register from './component/auth/Register';
 import Login from './component/auth/Login';
 import Deposit from './component/layout/Deposit';
+import WithDraw from './component/layout/WithDraw';
 import UserDashboard from './component/pages/UserDashboard';
 import Alert from './component/layout/Alert';
 import PrivateRoute from './component/routing/PrivateRoute';
@@ -32,6 +33,7 @@ const App = () => {
               <Navbar />
               <Alert />
               <Deposit />
+              <WithDraw />
               <Switch>
                 <PrivateRoute exact path="/" component={UserDashboard} />
                 <Route exact path="/home" component={Home} />

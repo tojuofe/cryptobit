@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DepositItem = ({ deposit }) => {
-  const { proof, status } = deposit;
+const WithDrawItem = ({ withdraw }) => {
+  const { amount, status } = withdraw;
 
   return (
     <div
       className="card bg-light"
       style={{ borderRadius: '10px', padding: '34px 40px 39px' }}
     >
-      <h1>Deposit</h1>
+      <h1>WithDraw</h1>
       <h3 className="text-primary text-left">
-        {proof}
+        {amount}
         <span
           style={{ float: 'right' }}
           className={
@@ -26,8 +26,8 @@ const DepositItem = ({ deposit }) => {
   );
 };
 
-DepositItem.propTypes = {
-  deposit: PropTypes.object.isRequired
+WithDrawItem.propTypes = {
+  withdraw: PropTypes.object.isRequired
 };
 
-export default DepositItem;
+export default WithDrawItem;

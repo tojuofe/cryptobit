@@ -4,18 +4,20 @@ import AuthContext from '../../context/auth/AuthContext';
 import DashboardContext from '../../context/dashboard/DashboardContext';
 
 import DepositList from '../layout/DepositList';
+import WithDrawList from '../layout/WithDrawList';
 
 const UserDashboard = () => {
   const authContext = useContext(AuthContext);
   const dashboardContext = useContext(DashboardContext);
 
   const { loadUser, getUserWallet } = authContext;
-  const { getUserDeposit } = dashboardContext;
+  const { getUserDeposit, getUserWithdraw } = dashboardContext;
 
   useEffect(() => {
     loadUser();
     getUserWallet();
     getUserDeposit();
+    getUserWithdraw();
     //eslint-disable-next-line
   }, []);
 
@@ -61,28 +63,9 @@ const UserDashboard = () => {
 
       <div className="container">
         <DepositList />
+        <WithDrawList />
       </div>
 
-      {/* Withdraw */}
-      <div id="withdraw-Modal" className="modalDialog">
-        <div>
-          <a href="#close" title="Close" className="close">
-            X
-          </a>
-          <h2>Withdraw</h2>
-          <p>Enter the Amount You want to Withdraw</p>
-          <form className="form">
-            <input
-              type="text"
-              placeholder="Enter the Amount"
-              name="text"
-              required
-              style={styleText}
-            />
-            <input type="submit" className="btn btn-block btn-primary" />
-          </form>
-        </div>
-      </div>
       {/* Support Ticket */}
       <div id="ticket-Modal" className="modalDialog">
         <div>

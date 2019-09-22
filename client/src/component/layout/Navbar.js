@@ -1,16 +1,20 @@
 import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/AuthContext';
+import DashboardContext from '../../context/dashboard/DashboardContext';
 
 import Logo from './cryptobit.png';
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
+  const dashboardContext = useContext(DashboardContext);
 
   const { isAuthenticated, logout, user } = authContext;
+  const { clearTrans } = dashboardContext;
 
   const onLogout = () => {
     logout();
+    clearTrans();
   };
 
   const AuthLink = (
