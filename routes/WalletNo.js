@@ -18,7 +18,7 @@ router.post('/', auth, async (req, res) => {
     res.json(newWallet);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send();
+    res.status(500).send('Server Error');
   }
 });
 
