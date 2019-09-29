@@ -6,7 +6,7 @@ const auth = require('../middleware/Auth');
 const User = require('../model/User');
 
 //@route        Update api/profile
-//@desc         Update a User
+//@desc         Update a User password
 //@access       Private
 
 router.put(
@@ -28,11 +28,11 @@ router.put(
     const passField = {};
     if (pass) passField.password = pass;
     try {
-      let user = await User.findById(req.params.id);
+      let user = await User.findById({ _id: req.user.id });
 
       user = new User({ pass });
       user = await User.findByIdAndUpdate(
-        req.params.id,
+        { _id: req.user.id },
         { $set: passField },
         { new: true }
       );

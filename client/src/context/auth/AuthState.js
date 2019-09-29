@@ -13,7 +13,9 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
   WALLET_LOADED,
-  WALLET_ERROR
+  WALLET_ERROR,
+  CHANGE_PASSWORD,
+  PASSWORD_ERROR
 } from '../types';
 
 const AuthState = props => {
@@ -115,6 +117,23 @@ const AuthState = props => {
     }
   };
 
+  // Change Password
+  const changePassword = async user => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.put(`/api/profile/${user._id}`, user, config);
+
+      dispatch({ type: CHANGE_PASSWORD, payload: res.data });
+    } catch (err) {
+      dispatch({ type: PASSWORD_ERROR, payload: err.response.msg });
+    }
+  };
+
   // Logout User
   const logout = () => dispatch({ type: LOGOUT });
 
@@ -135,6 +154,7 @@ const AuthState = props => {
         loadUser,
         getUserWallet,
         clearErrors,
+        changePassword,
         login,
         logout
       }}

@@ -8,7 +8,9 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
   WALLET_LOADED,
-  WALLET_ERROR
+  WALLET_ERROR,
+  CHANGE_PASSWORD,
+  PASSWORD_ERROR
 } from '../types';
 
 export default (state, action) => {
@@ -48,8 +50,15 @@ export default (state, action) => {
         user: null,
         error: action.payload
       };
+    case CHANGE_PASSWORD:
+      return {
+        ...state,
+        user: action.payload,
+        loading: false
+      };
     case CLEAR_ERRORS:
     case WALLET_ERROR:
+    case PASSWORD_ERROR:
       return {
         ...state,
         error: null

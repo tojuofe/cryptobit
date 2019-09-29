@@ -9,13 +9,16 @@ import {
   REGISTER_WITHDRAW,
   WITHDRAW_LOADED,
   WITHDRAW_ERROR,
-  CLEAR_TRANS
+  CLEAR_TRANS,
+  REGISTER_TICKET,
+  TICKET_ERROR
 } from '../types';
 
 const DashboardState = props => {
   const initialState = {
     deposits: [],
     withdraws: [],
+    tickets: [],
     isAuthenticated: null,
     loading: true,
     clearsErrors: null
@@ -91,6 +94,23 @@ const DashboardState = props => {
     }
   };
 
+  // Register Ticket
+  const addTicket = async ticket => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.post('/api/ticket', ticket, config);
+
+      dispatch({ type: REGISTER_TICKET, payload: res.data });
+    } catch (err) {
+      dispatch({ type: TICKET_ERROR, payload: err.response.msg });
+    }
+  };
+
   // Clear Transaction
   const clearTrans = () => {
     dispatch({ type: CLEAR_TRANS });
@@ -106,6 +126,7 @@ const DashboardState = props => {
         addDeposit,
         addWithdraw,
         getUserWithdraw,
+        addTicket,
         clearTrans
       }}
     >

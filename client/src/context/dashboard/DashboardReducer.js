@@ -5,6 +5,8 @@ import {
   REGISTER_WITHDRAW,
   WITHDRAW_LOADED,
   WITHDRAW_ERROR,
+  REGISTER_TICKET,
+  TICKET_ERROR,
   CLEAR_TRANS
 } from '../types';
 
@@ -34,8 +36,15 @@ export default (state, action) => {
         withdraws: [action.payload, ...state.withdraws],
         loading: false
       };
+    case REGISTER_TICKET:
+      return {
+        ...state,
+        tickets: [action.payload, ...state.tickets],
+        loading: false
+      };
     case DEPOSIT_ERROR:
     case WITHDRAW_ERROR:
+    case TICKET_ERROR:
       return {
         ...state,
         error: action.payload
