@@ -549,6 +549,12 @@ table th {
     justify-content: center;
   }
 
+  .card {
+    padding: 1rem;
+    border: #ccc 1px solid;
+    margin: 0.7rem 0;
+  }
+
   @media screen and (prefer-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;

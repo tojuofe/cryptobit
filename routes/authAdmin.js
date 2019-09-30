@@ -7,16 +7,15 @@ const { check, validationResult } = require('express-validator/check');
 
 const auth = require('../middleware/Auth');
 const Admin = require('../model/Admin');
-const User = require('../model/User');
 
 //@route        Get api/authadmin
-//@desc         Get logged in user
+//@desc         Get logged in admin
 //@access       private
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
-    const user = await User.find({ user: req.user }).select('-password');
-    res.json(user);
+    const admin = await Admin.findById(req.admin.id).select('-password');
+    res.json(admin);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
