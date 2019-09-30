@@ -8,10 +8,11 @@ const WithDraw = require('../model/WithDraw');
 //@access       private
 
 router.post('/', auth, async (req, res) => {
-  const { amount, status } = req.body;
+  const { amount, bitcoin_address, status } = req.body;
   try {
     const withdraw = new WithDraw({
       amount,
+      bitcoin_address,
       status,
       user: req.user.id
     });

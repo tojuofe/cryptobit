@@ -27,10 +27,20 @@ const Register = props => {
     Phone: '',
     password: '',
     password1: '',
+    depositwallet: '',
+    depositinterest: '',
     checkbox: false
   });
 
-  const { name, email, phone, password, password1 } = user;
+  const {
+    name,
+    email,
+    phone,
+    password,
+    password1,
+    depositwallet,
+    depositinterest
+  } = user;
 
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
@@ -43,7 +53,9 @@ const Register = props => {
         name,
         email,
         phone,
-        password
+        password,
+        depositwallet,
+        depositinterest
       });
     }
   };

@@ -10,7 +10,7 @@ const UserDashboard = () => {
   const authContext = useContext(AuthContext);
   const dashboardContext = useContext(DashboardContext);
 
-  const { loadUser, getUserWallet } = authContext;
+  const { loadUser, getUserWallet, user } = authContext;
   const { getUserDeposit, getUserWithdraw } = dashboardContext;
 
   useEffect(() => {
@@ -36,7 +36,9 @@ const UserDashboard = () => {
               />
             </h1>
             <div>
-              <h2 style={{ fontSize: '2.2em' }}>Balance: $ 0</h2>
+              <h2 style={{ fontSize: '2.2em' }}>
+                Balance: {user && user.depositwallet ? user.depositwallet : '0'}
+              </h2>
               <h3 style={{ fontWeight: 'bold' }}>Deposit Wallet</h3>
             </div>
           </div>
@@ -54,7 +56,10 @@ const UserDashboard = () => {
               />
             </h1>
             <div>
-              <h2 style={{ fontSize: '2.2em' }}>Balance: $ 0</h2>
+              <h2 style={{ fontSize: '2.2em' }}>
+                Balance:{' '}
+                {user && user.depositinterest ? user.depositinterest : '0'}
+              </h2>
               <h3 style={{ fontWeight: 'bold' }}>Interest Wallet</h3>
             </div>
           </div>

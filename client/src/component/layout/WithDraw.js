@@ -8,20 +8,23 @@ const WithDraw = () => {
 
   const [withdraw, setwithdraw] = useState({
     amount: '',
+    bitcoin_address: '',
     status: 'Pending'
   });
 
-  const { amount, status } = withdraw;
+  const { amount, bitcoin_address, status } = withdraw;
 
-  const onChange = e => setwithdraw({ [e.target.name]: e.target.value });
+  const onChange = e =>
+    setwithdraw({ ...withdraw, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
     addWithdraw({
       amount,
+      bitcoin_address,
       status
     });
-    setwithdraw({ amount: '' });
+    setwithdraw({ amount: '', bitcoin_address: '' });
   };
 
   return (
@@ -39,6 +42,15 @@ const WithDraw = () => {
               placeholder="Enter the Amount"
               name="amount"
               value={amount}
+              required
+              style={styleText}
+              onChange={onChange}
+            />
+            <input
+              type="text"
+              placeholder="Enter your Bitcoin Address "
+              name="bitcoin_address"
+              value={bitcoin_address}
               required
               style={styleText}
               onChange={onChange}

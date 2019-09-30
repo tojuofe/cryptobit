@@ -21,6 +21,12 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  depositwallet: {
+    type: String
+  },
+  depositinterest: {
+    type: String
+  },
   date: {
     type: Date,
     default: Date.now
