@@ -66,7 +66,7 @@ const Contact = () => {
           </div>
           <textarea
             placeholder="Enter Your Message"
-            style={{ fontFamily: 'Roboto', height: '100px' }}
+            style={{ fontFamily: 'Arial', height: '100px' }}
             name="text"
             onChange={onChange}
             required

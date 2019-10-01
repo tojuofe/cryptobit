@@ -15,6 +15,7 @@ import Home from './component/pages/Home';
 import Contact from './component/pages/Contact';
 import Register from './component/auth/Register';
 import Login from './component/auth/Login';
+import ForgotPassword from './component/pages/ForgotPassword';
 import LoginAdmin from './component/auth/LoginAdmin';
 import Deposit from './component/layout/Deposit';
 import WithDraw from './component/layout/WithDraw';
@@ -54,6 +55,11 @@ const App = () => {
                   <Route exact path="/contact" component={Contact} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
+                  <Route
+                    exact
+                    path="/forgotpassword"
+                    component={ForgotPassword}
+                  />
                   <Route exact path="/loginadmin" component={LoginAdmin} />
                 </Switch>
               </div>

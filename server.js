@@ -25,3 +25,4 @@ app.use('/api/ticket', require('./routes/Ticket'));
 app.use('/api/deposit', require('./routes/Deposit'));
 app.use('/api/withdraw', require('./routes/Withdraw'));
 app.use('/api/profile', require('./routes/Profile'));
+app.use('/api/forgotpassword', require('./routes/ForgotPassword'));
