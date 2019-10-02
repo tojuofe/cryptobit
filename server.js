@@ -26,3 +26,4 @@ app.use('/api/deposit', require('./routes/Deposit'));
 app.use('/api/withdraw', require('./routes/Withdraw'));
 app.use('/api/profile', require('./routes/Profile'));
 app.use('/api/forgotpassword', require('./routes/ForgotPassword'));
+app.use('/api/contact', require('./routes/Contact'));
