@@ -44,9 +44,9 @@ router.post(
 
         transporter.sendMail(mailOptions, (err, data) => {
           if (err) {
-            cb(err, null);
+            return cb(err, null);
           } else {
-            cb(null, data);
+            return cb(null, data);
           }
         });
       };
@@ -62,8 +62,6 @@ router.post(
       console.error(err.message);
       res.status(500).send('Server Error');
     }
-
-    res.json(req.body);
   }
 );
 
