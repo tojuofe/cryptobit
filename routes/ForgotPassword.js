@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const config = require('config');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator/check');
+const mailGun = require('nodemailer-mailgun-transport');
 const nodemailer = require('nodemailer');
 
 const User = require('../model/User');
@@ -24,44 +26,63 @@ router.post(
       let user = await User.findOne({ email });
 
       if (!user) {
-        return res.status(400).json({ msg: 'No User with this Email Address' });
+        return res.status(400).json({ msg: 'Email Address not Found!' });
       }
 
       const payload = { user: { id: user.id } };
       jwt.sign(
         payload,
         config.get('jwtSecret'),
-        { expiresIn: 36000 },
-        (err, token) => {
+        { expiresIn: 3600 },
+        async (err, token) => {
           if (err) {
             throw err;
           }
 
-          const smtpTrans = nodemailer.createTransport({
-            service: 'Gmail',
-            host: 'smtp.gmail.com',
-            auth: {
-              user: 'scottschris78@gmail.com',
-              pass: 'Chriscotts_2018'
-            }
-          });
+          // TODO: this is to update token
+          /*  
+            await User.findByIdAndUpdate(
+            { _id: user._id },
+            { resetpasswordtoken: token },
+            { new: true }
+          );
+        */
 
-          const mailOptions = {
-            to: user.email,
-            from: 'scottschris78@gmail.com',
-            subject: 'Gallery Password Reset',
-            text:
-              'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-              'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-              `http://localhost:3000/api/forgotpassword/${token}` +
-              '\n\n' +
-              'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+          const auth = {
+            auth: {
+              api_key: 'f6ed1923558b18834f99a51006b8fef5-af6c0cec-2fb05069',
+              domain: 'sandbox876cae9a2b6d4ab6924040adea476266.mailgun.org'
+            }
           };
-          smtpTrans.sendMail(mailOptions, err => {
+          const transporter = nodemailer.createTransport(mailGun(auth));
+
+          const sendMail = (email, cb) => {
+            const mailOptions = {
+              to: email,
+              from: 'scottschris78@gmail.com',
+              subject: 'Cryptobit Password Reset',
+              text:
+                'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+                `http://localhost:3000/resetpassword/${token}` +
+                '\n\n' +
+                'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            };
+
+            transporter.sendMail(mailOptions, (err, data) => {
+              if (err) {
+                return cb(err, null);
+              } else {
+                return cb(null, data);
+              }
+            });
+          };
+
+          sendMail(email, (err, data) => {
             if (err) {
-              console.log('Error Sending', err);
+              res.status(500).json({ msg: err.message });
             } else {
-              res.status(400).json({ msg: 'Message Sent' });
+              res.json({ msg: 'Email Sent' });
             }
           });
         }
@@ -70,6 +91,43 @@ router.post(
       console.error(err.message);
       res.status(500).send('Server Error');
     }
+  }
+);
+
+//@route        Update api/forgotpassword
+//@desc         Reset User Password
+//@access       Private
+
+router.put(
+  '/:token',
+  [check('password', 'Password is required').exists()],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { password } = req.body;
+    const { token } = req.params;
+    jwt.verify(token, config.get('jwtSecret'), (err, decoded) => {
+      if (err) {
+        return res.status(400).send('Expired Url');
+      }
+      const payload = decoded;
+      const { user } = payload;
+
+      User.findOne({ _id: user.id });
+
+      bcrypt.genSalt(10, (err, salt) => {
+        if (err) return;
+        bcrypt.hash(password, salt, (err, hash) => {
+          if (err) return;
+          User.findOneAndUpdate({ _id: user.id }, { password: hash })
+            .then(() => res.status(200).json('Password Changed'))
+            .catch(err => res.status(500).json('Server Error'));
+        });
+      });
+    });
   }
 );
 

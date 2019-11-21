@@ -1,16 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ContactContext from '../../context/contact/ContactContext';
+import AlertContext from '../../context/alert/AlertContext';
 
 const Contact = () => {
-  const [user, setUser] = useState({
+  const contactContext = useContext(ContactContext);
+  const alertContext = useContext(AlertContext);
+
+  const { createContact } = contactContext;
+  const { setAlert } = alertContext;
+
+  const [contact, setContact] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
+  const { name, email, message } = contact;
+
+  const onChange = e =>
+    setContact({ ...contact, [e.target.name]: e.target.value });
 
   const onSubmit = e => {
     e.preventDefault();
+    createContact({
+      name,
+      email,
+      message
+    });
+    setAlert('Message Sent', 'success');
+    setContact({
+      name: '',
+      email: '',
+      message: ''
+    });
   };
 
   return (
@@ -21,6 +43,7 @@ const Contact = () => {
           textAlign: 'center',
           padding: '34px 40px 39px'
         }}
+        className="mb-6"
       >
         Contact Us
       </h1>
@@ -57,9 +80,9 @@ const Contact = () => {
               required
             />
             <input
-              type="text"
+              type="email"
               placeholder="Enter Your Email Address"
-              name="text"
+              name="email"
               onChange={onChange}
               required
             />
@@ -67,7 +90,7 @@ const Contact = () => {
           <textarea
             placeholder="Enter Your Message"
             style={{ fontFamily: 'Arial', height: '100px' }}
-            name="text"
+            name="message"
             onChange={onChange}
             required
           />

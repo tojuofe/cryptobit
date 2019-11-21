@@ -1,12 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import Banner from './banner.png';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/AuthContext'
 
-const Home = () => {
+const Home = (props) => {
+ const authContext = useContext(AuthContext)
+
+ const { isAuthenticated } = authContext
+
+ useEffect(() => {
+   if(isAuthenticated) {
+     props.history.push('/userdashboard')
+   }
+ })
+
   return (
     <Fragment>
       <div className="container">
-        <div className="grid-2 my-3">
+        <div className="grid-2 mb-10" id="home">
           <div className="my-3">
             <h1 style={{ fontSize: '4em', color: '#476875' }}>
               Make Up To 200% Profit On Your Bitcoin Investment In 7 Days.

@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   const authContext = useContext(AuthContext);
   const dashboardContext = useContext(DashboardContext);
 
-  const { loadUser, getUserWallet, user } = authContext;
+  const { loadUser, getUserWallet } = authContext;
   const { getUserDeposit, getUserWithdraw } = dashboardContext;
 
   useEffect(() => {

@@ -29,7 +29,7 @@ const Navbar = () => {
       <div>
         <ul>
           <li>
-            <Link to="/">Dashboard</Link>
+            <Link to="/userdashboard">Dashboard</Link>
           </li>
           <li>
             <a href="#deposit-Modal">Deposit</a>
@@ -73,7 +73,7 @@ const Navbar = () => {
       </h1>
       <ul>
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <a href="#service">Services</a>
