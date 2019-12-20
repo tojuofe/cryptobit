@@ -12,9 +12,6 @@ const PORT = process.env.PORT || 5050;
 
 app.listen(PORT, () => console.log(`Server Started on Port ${PORT}`));
 
-// Create Route
-app.get('/', (req, res) => res.json({ msg: 'Welcome from CryptoBit...' }));
-
 // Define Routes
 app.use('/api/admin', require('./routes/Admin'));
 app.use('/api/authadmin', require('./routes/authAdmin'));
@@ -27,3 +24,13 @@ app.use('/api/withdraw', require('./routes/Withdraw'));
 app.use('/api/profile', require('./routes/Profile'));
 app.use('/api/forgotpassword', require('./routes/ForgotPassword'));
 app.use('/api/contact', require('./routes/Contact'));
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // Set Static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  );
+}
