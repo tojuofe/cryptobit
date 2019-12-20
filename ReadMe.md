@@ -1,7 +1,7 @@
 Cryptobit Platform
 This is the first version V1.0.0 ==>
 
-1. It's not responsive on smaller devices --> need to be fixed
+1. It's responsive on smaller devices -->
 2. Proper handling of error messages
 
 # Run express server
