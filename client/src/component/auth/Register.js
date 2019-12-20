@@ -61,58 +61,58 @@ const Register = props => {
   };
 
   return (
-    <div className="container">
-      <div className="card" style={StyleShadow}>
-        <h1 className="text-center">Sign Up to Create a New Account</h1>
+    <div className='container'>
+      <div className='card formL' style={StyleShadow}>
+        <h1 className='text-center my'>Sign Up to Create a New Account</h1>
         <form
           onSubmit={onSubmit}
-          className="form"
-          style={{ padding: '34px 20px 19px' }}
+          className='form'
+          style={{ padding: '3px 15px' }}
         >
           <input
-            type="text"
-            placeholder="Enter Your Name"
-            name="name"
+            type='text'
+            placeholder='Enter Your Name'
+            name='name'
             onChange={onChange}
             required
             style={styleText}
           />
           <input
-            type="text"
-            placeholder="Enter Your Email Address"
-            name="email"
+            type='text'
+            placeholder='Enter Your Email Address'
+            name='email'
             onChange={onChange}
             required
             style={styleText}
           />
           <input
-            type="text"
-            placeholder="Phone Number"
-            name="phone"
+            type='text'
+            placeholder='Phone Number'
+            name='phone'
             onChange={onChange}
             required
             style={styleText}
           />
           <input
-            type="password"
-            placeholder="Password"
-            name="password"
+            type='password'
+            placeholder='Password'
+            name='password'
             onChange={onChange}
             required
             style={styleText}
           />
           <input
-            type="password"
-            placeholder="Confirm Password"
-            name="password1"
+            type='password'
+            placeholder='Confirm Password'
+            name='password1'
             onChange={onChange}
             required
             style={styleText}
           />
           <div style={{ display: 'flex' }}>
             <input
-              type="checkbox"
-              name="checkbox"
+              type='checkbox'
+              name='checkbox'
               onChange={onChange}
               required
             />
@@ -122,8 +122,8 @@ const Register = props => {
             </p>
           </div>
           <input
-            type="submit"
-            className="btn btn-block btn-primary"
+            type='submit'
+            className='btn btn-block btn-primary'
             style={{ borderRadius: '5px' }}
           />
         </form>
@@ -134,8 +134,7 @@ const Register = props => {
 
 const StyleShadow = {
   boxShadow: '1px 1px 3px 0px',
-  margin: '50px auto',
-  width: '40em'
+  margin: '50px auto'
 };
 
 const styleText = {

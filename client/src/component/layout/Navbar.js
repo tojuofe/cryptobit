@@ -22,39 +22,36 @@ const Navbar = () => {
       <h1>
         <img
           src={Logo}
-          alt="logo.."
+          alt='logo..'
           style={{ width: '150px', height: '50px' }}
         />
       </h1>
       <div>
         <ul>
           <li>
-            <Link to="/userdashboard">Dashboard</Link>
+            <a href='#deposit-Modal'>Deposit</a>
           </li>
           <li>
-            <a href="#deposit-Modal">Deposit</a>
+            <a href='#withdraw-Modal'>Withdraw</a>
           </li>
           <li>
-            <a href="#withdraw-Modal">Withdraw</a>
+            <a href='#ticket-Modal'>Support Ticket</a>
           </li>
           <li>
-            <a href="#ticket-Modal">Support Ticket</a>
-          </li>
-          <li>
-            <a href="#profile-Modal">Profile</a>
+            <a href='#profile-Modal'>Profile</a>
           </li>
         </ul>
       </div>
-      <div className="d-flex">
-        <ul style={{ marginTop: '2em' }}>
+      <div className='d-flex nav-move'>
+        <ul className='my-2'>
           <li>Hello {user && user.name}</li>
         </ul>
-        <Link to="#!">
+        <Link to='#!'>
           <input
-            type="submit"
-            className="btn btn-dark"
+            type='submit'
+            className='btn btn-dark'
             style={{ backgroundColor: '#478192' }}
-            value="Logout"
+            value='Logout'
             onClick={onLogout}
           />
         </Link>
@@ -67,46 +64,46 @@ const Navbar = () => {
       <h1>
         <img
           src={Logo}
-          alt="logo.."
+          alt='logo..'
           style={{ width: '150px', height: '50px' }}
         />
       </h1>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to='/'>Home</Link>
         </li>
         <li>
-          <a href="#service">Services</a>
+          <a href='#service'>Services</a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href='#about'>About</a>
         </li>
 
         <li>
-          <a href="#plan">Plan</a>
+          <a href='#plan'>Plan</a>
         </li>
         <li>
-          <a href="#faq">FAQ</a>
+          <a href='#faq'>FAQ</a>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to='/contact'>Contact</Link>
         </li>
       </ul>
       <div>
-        <Link to="/login">
+        <Link to='/login'>
           <input
-            type="submit"
-            className="btn btn-dark"
+            type='submit'
+            className='btn btn-dark'
             style={{ backgroundColor: '#478192' }}
-            value="Sign In"
+            value='Sign In'
           />
         </Link>
-        <Link to="/register">
+        <Link to='/register'>
           <input
-            type="submit"
-            className="btn btn-dark"
+            type='submit'
+            className='btn btn-dark'
             style={{ backgroundColor: '#478192' }}
-            value="Sign Up"
+            value='Sign Up'
           />
         </Link>
       </div>
@@ -114,7 +111,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="navbar bg-primary">
+    <nav className='navbar bg-primary'>
       {isAuthenticated ? AuthLink : GuestLink}
     </nav>
   );

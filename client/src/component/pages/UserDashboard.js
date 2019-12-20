@@ -23,20 +23,20 @@ const UserDashboard = () => {
 
   return (
     <div>
-      <div className="container grid-2">
+      <div className='container grid-2'>
         <div
-          className="card"
+          className='card'
           style={{ borderRadius: '10px', padding: '34px 40px 39px' }}
         >
-          <div className="d-flex">
+          <div className='d-flex'>
             <h1>
               <i
-                className="far fa-money-bill-alt primaryColor"
-                style={{ fontSize: '80px', paddingRight: '10px' }}
+                className='far fa-money-bill-alt primaryColor'
+                style={{ fontSize: '68px', paddingRight: '10px' }}
               />
             </h1>
             <div>
-              <h2 style={{ fontSize: '2.2em' }}>
+              <h2 style={{ fontSize: '2.0em' }}>
                 Balance: {user && user.depositwallet ? user.depositwallet : '0'}
               </h2>
               <h3 style={{ fontWeight: 'bold' }}>Deposit Wallet</h3>
@@ -45,18 +45,18 @@ const UserDashboard = () => {
         </div>
 
         <div
-          className="card "
+          className='card '
           style={{ borderRadius: '10px', padding: '34px 40px 39px' }}
         >
-          <div className="d-flex">
+          <div className='d-flex'>
             <h1>
               <i
-                className="fas fa-wallet primaryColor"
-                style={{ fontSize: '80px', paddingRight: '10px' }}
+                className='fas fa-wallet primaryColor'
+                style={{ fontSize: '70px', paddingRight: '10px' }}
               />
             </h1>
             <div>
-              <h2 style={{ fontSize: '2.2em' }}>
+              <h2 style={{ fontSize: '2.0em' }}>
                 Balance:{' '}
                 {user && user.depositinterest ? user.depositinterest : '0'}
               </h2>
@@ -66,7 +66,7 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className='container'>
         <DepositList />
         <WithDrawList />
       </div>

@@ -1,24 +1,24 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import Banner from './banner.png';
 import { Link } from 'react-router-dom';
-import AuthContext from '../../context/auth/AuthContext'
+import AuthContext from '../../context/auth/AuthContext';
 
-const Home = (props) => {
- const authContext = useContext(AuthContext)
+const Home = props => {
+  const authContext = useContext(AuthContext);
 
- const { isAuthenticated } = authContext
+  const { isAuthenticated } = authContext;
 
- useEffect(() => {
-   if(isAuthenticated) {
-     props.history.push('/userdashboard')
-   }
- })
+  useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push('/userdashboard');
+    }
+  });
 
   return (
     <Fragment>
-      <div className="container">
-        <div className="grid-2 mb-10" id="home">
-          <div className="my-3">
+      <div className='container content'>
+        <div className='grid-2 mb-10' id='home'>
+          <div className='my-3'>
             <h1 style={{ fontSize: '4em', color: '#476875' }}>
               Make Up To 200% Profit On Your Bitcoin Investment In 7 Days.
             </h1>
@@ -27,27 +27,27 @@ const Home = (props) => {
               Experts. Make Up To 200% Profit On Your Bitcoin Investment In 7
               Days.
             </p>
-            <Link to="/register">
+            <Link to='/register'>
               <input
-                type="submit"
-                className="btn btn-dark"
+                type='submit'
+                className='btn btn-dark'
                 style={{
                   backgroundColor: '#478192',
                   width: '160px',
                   height: '50px',
                   borderRadius: '10px'
                 }}
-                value="Sign Up"
+                value='Sign Up'
               />
             </Link>
           </div>
           <div>
-            <img src={Banner} alt="banner" />
+            <img src={Banner} alt='banner' />
           </div>
         </div>
-        <div className="grid-3">
+        <div className='grid-3'>
           <div
-            className="card"
+            className='card'
             style={{
               borderRadius: '10px',
               backgroundColor: '#478192',
@@ -56,11 +56,11 @@ const Home = (props) => {
             }}
           >
             <h2>Users</h2>
-            <i className="fas fa-users" style={{ fontSize: '65px' }} />
+            <i className='fas fa-users' style={{ fontSize: '65px' }} />
             <h1>100K+</h1>
           </div>
           <div
-            className="card"
+            className='card'
             style={{
               borderRadius: '10px',
               backgroundColor: '#478192',
@@ -69,12 +69,12 @@ const Home = (props) => {
             }}
           >
             <h2>Deposit</h2>
-            <i className="far fa-money-bill-alt" style={{ fontSize: '65px' }} />
+            <i className='far fa-money-bill-alt' style={{ fontSize: '65px' }} />
             <h1>$200K+</h1>
           </div>
 
           <div
-            className="card"
+            className='card'
             style={{
               borderRadius: '10px',
               backgroundColor: '#478192',
@@ -83,19 +83,18 @@ const Home = (props) => {
             }}
           >
             <h2>Withdraw</h2>
-            <i className="fas fa-download" style={{ fontSize: '65px' }} />
+            <i className='fas fa-download' style={{ fontSize: '65px' }} />
             <h1>$500K+</h1>
           </div>
         </div>
         {/* Features Section */}
-        <div className="my-5" id="service">
+        <div className='my-5' id='service'>
           <h1 style={{ fontSize: '2.5em', textAlign: 'center' }}>
             Our Features
           </h1>
           <p
             style={{
-              width: '80%',
-              paddingLeft: '13em',
+              paddingLeft: '1em',
               fontSize: '1.2em',
               textAlign: 'center'
             }}
@@ -106,10 +105,10 @@ const Home = (props) => {
             investment growth.
           </p>
 
-          <div className="grid-2" style={{ marginTop: '3em' }}>
-            <div className="card" style={styleCard}>
+          <div className='grid-2' style={{ marginTop: '3em' }}>
+            <div className='card' style={styleCard}>
               <h1>
-                <i className="fab fa-bitcoin" /> Cryptobit
+                <i className='fab fa-bitcoin' /> Cryptobit
               </h1>
               <p>
                 With our cutting edge technology and experienced professionals
@@ -121,10 +120,10 @@ const Home = (props) => {
                 focused on the Bitcoin trading market for more than 3 years.
               </p>
             </div>
-            <div className="card" style={styleCard}>
+            <div className='card' style={styleCard}>
               <h1>
                 {' '}
-                <i className="fa fa-lock" /> Secure
+                <i className='fa fa-lock' /> Secure
               </h1>
               <p>
                 Crypto Bit uses advanced security systems that give our
@@ -136,10 +135,11 @@ const Home = (props) => {
             </div>
           </div>
 
-          <div className="grid-2">
-            <div className="card" style={styleCard}>
+          <div className='grid-2'>
+            <div className='card' style={styleCard}>
               <h1>
-                <i className="fa fa-bars" /> Profitable
+                {' '}
+                <i className='fa fa-bars' /> Profitable
               </h1>
               <p>
                 We take great pride in maintaining a secure, profitable
@@ -147,9 +147,9 @@ const Home = (props) => {
                 minimal fuss, low risk and optimal convenience.
               </p>
             </div>
-            <div className="card" style={styleCard}>
+            <div className='card' style={styleCard}>
               <h1>
-                <i className="fa fa-life-ring" /> Support
+                <i className='fa fa-life-ring' /> Support
               </h1>
               <p>
                 We know how important it is for you to communicate to us; that’s
@@ -165,10 +165,10 @@ const Home = (props) => {
       </div>
       {/* About Section */}
       <section
-        className="bg-primary text-center"
+        className='bg-primary text-center'
         style={{ padding: '34px 40px 39px' }}
       >
-        <h1 className="my-3" style={{ fontSize: '2.8em' }}  id="about">
+        <h1 className='my-3' style={{ fontSize: '2.8em' }} id='about'>
           About Us
         </h1>
         <p style={{ fontSize: '1.2em' }}>
@@ -182,29 +182,36 @@ const Home = (props) => {
           companies within a network of offshore banking facilities that
           provides maximum privacy for our investors/fund's owners.
         </p>
-        <Link to="/register">
-        <input
-          type="submit"
-          className="btn btn-dark"
-          style={{
-            backgroundColor: '#478192',
-            width: '160px',
-            height: '70px',
-            borderRadius: '10px'
-          }}
-          value="Join Now"
-        />
+        <Link to='/register'>
+          <input
+            type='submit'
+            className='btn btn-dark'
+            style={{
+              backgroundColor: '#478192',
+              width: '160px',
+              height: '70px',
+              borderRadius: '10px'
+            }}
+            value='Join Now'
+          />
         </Link>
       </section>
 
       <section
-        className="text-center"
+        className='text-center'
         style={{ backgroundColor: '#F0F8FF', padding: '34px 40px 39px' }}
       >
-        <h1 className="my-3" style={{ fontSize: '2.8em' }}>
+        <h1 className='my-1' style={{ fontSize: '2.8em' }}>
           How It's Work
         </h1>
-        <p style={{ fontSize: '1.2em', margin: '1em 10em' }}>
+        <p
+          style={{
+            paddingLeft: '1em',
+            fontSize: '1.2em',
+            justifyContent: 'center'
+          }}
+          className='my-1'
+        >
           Crypto Bit adopt the privacy provided by the bitcoin network and add
           more layers to it by combining its decade-old financial system with
           the most-effective technology available today. It enters smart
@@ -215,9 +222,9 @@ const Home = (props) => {
           proprietary algorithm then switches in real time to mine the most
           profitable crypto coin.
         </p>
-        <div className="grid-4">
-          <div className="card bg-white" style={{ borderRadius: '10px' }}>
-            <i className="fa fa-credit-card" style={{ fontSize: '35px' }} />
+        <div className='grid-4'>
+          <div className='card bg-white' style={{ borderRadius: '10px' }}>
+            <i className='fa fa-credit-card' style={{ fontSize: '35px' }} />
             <h1>Step One</h1>
             <p>
               Choose from the various investment plans of your choice. When you
@@ -225,8 +232,8 @@ const Home = (props) => {
             </p>
           </div>
 
-          <div className="card bg-white" style={{ borderRadius: '10px' }}>
-            <i className="fa fa-university" style={{ fontSize: '35px' }} />
+          <div className='card bg-white' style={{ borderRadius: '10px' }}>
+            <i className='fa fa-university' style={{ fontSize: '35px' }} />
             <h1>Step Two</h1>
             <p>
               Enter your Name, Phone Number, Email Address, Amount you want to
@@ -235,8 +242,8 @@ const Home = (props) => {
             </p>
           </div>
 
-          <div className="card bg-white" style={{ borderRadius: '10px' }}>
-            <i className="far fa-money-bill-alt" style={{ fontSize: '35px' }} />
+          <div className='card bg-white' style={{ borderRadius: '10px' }}>
+            <i className='far fa-money-bill-alt' style={{ fontSize: '35px' }} />
             <h1>Step Three</h1>
             <p>
               Deposit any amount (min $50 USD and max $500,000 USD) worth of
@@ -244,8 +251,8 @@ const Home = (props) => {
             </p>
           </div>
 
-          <div className="card bg-white" style={{ borderRadius: '10px' }}>
-            <i className="fab fa-bitcoin" style={{ fontSize: '35px' }} />
+          <div className='card bg-white' style={{ borderRadius: '10px' }}>
+            <i className='fab fa-bitcoin' style={{ fontSize: '35px' }} />
             <h1>Step Four</h1>
             <p>
               Now wait for the deposit to be confirmed, when the deposit payment
@@ -255,34 +262,34 @@ const Home = (props) => {
           </div>
         </div>
       </section>
-       {/* Investment Plan Section */}
-      <section className="container" id="plan">
-        <h2 className="text-center my-3">ALL INVESTMENT PLANS</h2>
-        <div className="grid-3">
+      {/* Investment Plan Section */}
+      <section className='container' id='plan'>
+        <h2 className='text-center my-3'>ALL INVESTMENT PLANS</h2>
+        <div className='grid-3'>
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>Basic Plan 1</h2>
-            <h4 style={{ fontSize: '2.5em' }}>5 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>5%</h4>
             <span style={{ fontWeight: 'bold' }}>Daily / 5 Times </span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 50 - $ 900
+                Invest Min-Max Amount: <br /> $50 - $900
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -290,29 +297,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>Basic Plan 2</h2>
-            <h4 style={{ fontSize: '2.5em' }}>10 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>10%</h4>
             <span style={{ fontWeight: 'bold' }}>Weekly / 0 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 1000 - $ 4000
+                Invest Min-Max Amount: <br /> $1000 - $4000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -320,29 +327,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>Basic Plan 3</h2>
-            <h4 style={{ fontSize: '2.5em' }}>25 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>25%</h4>
             <span style={{ fontWeight: 'bold' }}>Monthly / 0 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 5000 - $ 10000
+                Invest Min-Max Amount: <br /> $5000 - $10000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -351,32 +358,33 @@ const Home = (props) => {
         </div>
       </section>
 
-      <section className="container">
-        <div className="grid-3">
+      <section className='container'>
+        <div className='grid-3'>
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>PREMIUM DAILY PLAN 1</h2>
-            <h4 style={{ fontSize: '2.5em' }}>10 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>10%</h4>
             <span style={{ fontWeight: 'bold' }}>Daily / 5 Times </span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br />$ 10000 - $ 20000
+                Invest Min-Max Amount: <br />
+                $10000 - $20000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -384,29 +392,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>PREMIUM WEEKLY PLAN 2</h2>
-            <h4 style={{ fontSize: '2.5em' }}>15 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>15%</h4>
             <span style={{ fontWeight: 'bold' }}>Weekly / 0 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 6000 - $ 10000
+                Invest Min-Max Amount: <br /> $6000 - $10000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -414,29 +422,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>PREMIUM WEEKLY PLAN 3</h2>
-            <h4 style={{ fontSize: '2.5em' }}>30 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>30%</h4>
             <span style={{ fontWeight: 'bold' }}>Monthly / 0 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 25000 - $ 100000
+                Invest Min-Max Amount: <br /> $25000 - $100000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -445,32 +453,33 @@ const Home = (props) => {
         </div>
       </section>
 
-      <section className="container">
-        <div className="grid-3">
+      <section className='container'>
+        <div className='grid-3'>
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>VIP PLAN 1</h2>
-            <h4 style={{ fontSize: '2.5em' }}>30 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>30%</h4>
             <span style={{ fontWeight: 'bold' }}>Hourly / 5 Times </span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br />$ 100000 - $ 200000
+                Invest Min-Max Amount: <br />
+                $100000 - $200000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -478,29 +487,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>VIP PLAN 2</h2>
-            <h4 style={{ fontSize: '2.5em' }}>40 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>40%</h4>
             <span style={{ fontWeight: 'bold' }}>Weekly / 0 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 250000 - $ 350000
+                Invest Min-Max Amount: <br /> $250000 - $350000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -508,29 +517,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>VIP PLAN 3</h2>
-            <h4 style={{ fontSize: '2.5em' }}>50 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>50%</h4>
             <span style={{ fontWeight: 'bold' }}>Monthly / 0 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 400000 - $ 1000000
+                Invest Min-Max Amount: <br /> $400000 - $1000000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -539,32 +548,33 @@ const Home = (props) => {
         </div>
       </section>
 
-      <section className="container">
-        <div className="grid-3">
+      <section className='container'>
+        <div className='grid-3'>
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>PRIVATE INVESTMENT PLAN 1</h2>
-            <h4 style={{ fontSize: '2.5em' }}>65 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>65%</h4>
             <span style={{ fontWeight: 'bold' }}>Hourly / 168 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br />$ 100000 - $ 500000
+                Invest Min-Max Amount: <br />
+                $100000 - $500000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -572,29 +582,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>PRIVATE INVESTMENT PLAN 2</h2>
-            <h4 style={{ fontSize: '2.5em' }}>95 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>95%</h4>
             <span style={{ fontWeight: 'bold' }}>Hourly / 168 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 600000 - $ 1000000
+                Invest Min-Max Amount: <br /> $600000 - $1000000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -602,29 +612,29 @@ const Home = (props) => {
           </div>
 
           <div
-            className="card text-center py-2"
+            className='card text-center py-2'
             style={{ borderRadius: '10px', backgroundColor: '#F0F8FF' }}
           >
             <h2>PRIVATE INVESTMENT PLAN 3</h2>
-            <h4 style={{ fontSize: '2.5em' }}>125 %</h4>
+            <h4 style={{ fontSize: '2.5em' }}>125%</h4>
             <span style={{ fontWeight: 'bold' }}>Hourly / 336 Times</span>
             <hr />
 
-            <ul className="py-3">
+            <ul className='py-3'>
               <li style={{ fontWeight: 'bold' }}>Features</li>
               <li>
-                Invest Min-Max Amount: <br /> $ 1100000 - $ 50000000
+                Invest Min-Max Amount: <br /> $1100000 - $50000000
               </li>
               <li>
-                <span className="badge badge-success">
+                <span className='badge badge-success'>
                   Capital Will Return Back
                 </span>
               </li>
               <li>24/7 Support</li>
             </ul>
             <Link
-              to="/register"
-              className="btn btn-primary"
+              to='/register'
+              className='btn btn-primary'
               style={{ width: '200px', height: '35px', borderRadius: '10px' }}
             >
               Buy Now
@@ -633,13 +643,15 @@ const Home = (props) => {
         </div>
       </section>
       {/* FAQ Section */}
-      <section className="bg-primary" style={{ padding: '34px 40px 39px' }}>
-        <h1 className="text-center" id="faq">Frequently Asked Questions</h1>
-        <p className="text-center">Cryptobit Questions and Answer</p>
+      <section className='bg-primary' style={{ padding: '34px 40px 39px' }}>
+        <h1 className='text-center' id='faq'>
+          Frequently Asked Questions
+        </h1>
+        <p className='text-center'>Cryptobit Questions and Answer</p>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-1" type="checkbox" />
-          <label htmlFor="identifier-1">
+        <div className='card'>
+          <input className='toggle-box' id='identifier-1' type='checkbox' />
+          <label htmlFor='identifier-1'>
             How Do I Check My Investment Status?
           </label>
           <div>
@@ -648,9 +660,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-2" type="checkbox" />
-          <label htmlFor="identifier-2">
+        <div className='card'>
+          <input className='toggle-box' id='identifier-2' type='checkbox' />
+          <label htmlFor='identifier-2'>
             {' '}
             Once My Investment Plan Is On Can I Stop It And Withdraw My Money?
           </label>
@@ -660,9 +672,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-3" type="checkbox" />
-          <label htmlFor="identifier-3"> How Secure Is Your Platform?</label>
+        <div className='card'>
+          <input className='toggle-box' id='identifier-3' type='checkbox' />
+          <label htmlFor='identifier-3'> How Secure Is Your Platform?</label>
           <div>
             Our Platform will be secured through multiple security features and
             systems specially tailored to prevent the risk of both internal and
@@ -671,9 +683,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-4" type="checkbox" />
-          <label htmlFor="identifier-4">
+        <div className='card'>
+          <input className='toggle-box' id='identifier-4' type='checkbox' />
+          <label htmlFor='identifier-4'>
             {' '}
             Can I Lose Some Or All My Investment Money?
           </label>
@@ -686,9 +698,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-5" type="checkbox" />
-          <label htmlFor="identifier-5">
+        <div className='card'>
+          <input className='toggle-box' id='identifier-5' type='checkbox' />
+          <label htmlFor='identifier-5'>
             {' '}
             What Countries Is Restricted To Invest In CRYPTOBIT?
           </label>
@@ -699,9 +711,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-6" type="checkbox" />
-          <label htmlFor="identifier-6"> What Is Interest Wallet?</label>
+        <div className='card'>
+          <input className='toggle-box' id='identifier-6' type='checkbox' />
+          <label htmlFor='identifier-6'> What Is Interest Wallet?</label>
           <div>
             Interest Wallet allows for storing all profits from investment by
             user. This wallet allows transfer to external wallets by Clicking
@@ -711,9 +723,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-7" type="checkbox" />
-          <label htmlFor="identifier-7"> What Is Deposit Wallet?</label>
+        <div className='card'>
+          <input className='toggle-box' id='identifier-7' type='checkbox' />
+          <label htmlFor='identifier-7'> What Is Deposit Wallet?</label>
           <div>
             Deposit Wallet enables a registered Crypto Bit Account user easily
             deposit bitcoin into the wallet. This wallet is designed to buy
@@ -722,9 +734,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-8" type="checkbox" />
-          <label htmlFor="identifier-8"> How Do I Make Deposit?</label>
+        <div className='card'>
+          <input className='toggle-box' id='identifier-8' type='checkbox' />
+          <label htmlFor='identifier-8'> How Do I Make Deposit?</label>
           <div>
             To make deposit you must be registered and then Login and Click
             DEPOSIT and then Deposit Now in the scroll down menu, choose the
@@ -735,9 +747,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-9" type="checkbox" />
-          <label htmlFor="identifier-9"> How To Create An Account?</label>
+        <div className='card'>
+          <input className='toggle-box' id='identifier-9' type='checkbox' />
+          <label htmlFor='identifier-9'> How To Create An Account?</label>
           <div>
             Please Click the Crypto Dock link https://cryptobit.com/, Visit
             Crypto Bit "Account and Signup" button on their site’s homepage.,
@@ -747,9 +759,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-10" type="checkbox" />
-          <label htmlFor="identifier-10"> How Does Bitcoin Works?</label>
+        <div className='card'>
+          <input className='toggle-box' id='identifier-10' type='checkbox' />
+          <label htmlFor='identifier-10'> How Does Bitcoin Works?</label>
           <div>
             From a user perspective, Bitcoin is nothing more than a mobile app
             or computer program that provides a personal Bitcoin wallet and
@@ -758,9 +770,9 @@ const Home = (props) => {
           </div>
         </div>
 
-        <div className="card">
-          <input className="toggle-box" id="identifier-11" type="checkbox" />
-          <label htmlFor="identifier-11"> What Is Cryptocurrency?</label>
+        <div className='card'>
+          <input className='toggle-box' id='identifier-11' type='checkbox' />
+          <label htmlFor='identifier-11'> What Is Cryptocurrency?</label>
           <div>
             Cryptocurrency is a form of payment that can be exchanged online for
             goods and services. Many companies have issued their own currencies,
@@ -770,13 +782,7 @@ const Home = (props) => {
         </div>
       </section>
 
-      <footer
-        style={{
-          padding: '34px 40px 39px',
-          textAlign: 'center',
-          fontSize: '1em'
-        }}
-      >
+      <footer className='app-footer'>
         <p>© CRYPTO BIT 2019 - All Rights Reserved</p>
       </footer>
     </Fragment>

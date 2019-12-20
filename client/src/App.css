@@ -9,14 +9,24 @@
   --success-color: #28a745;
 }
 
-html {
+/* html {
   scroll-behavior: smooth;
+} */
+
+html,
+body {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.content {
+  flex: 1 0 auto;
 }
 
 body {
@@ -63,7 +73,7 @@ img {
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 99999;
+  z-index: 2;
   opacity: 0;
   -webkit-transition: opacity 400ms ease-in;
   -moz-transition: opacity 400ms ease-in;
@@ -513,6 +523,29 @@ table th {
   margin-right: 0.6rem;
 }
 
+.formL {
+  width: 35em;
+}
+
+.checks {
+  display: flex;
+}
+
+.check {
+  margin-top: 13px;
+  padding-left: 3px;
+}
+.left {
+  padding-left: 12rem;
+}
+
+.app-footer {
+  flex-shrink: 0;
+  padding: 34px 40px 39px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
@@ -549,10 +582,37 @@ table th {
     justify-content: center;
   }
 
+  .nav-move {
+    justify-content: center;
+  }
+
+  .formL {
+    width: 23em;
+  }
+
+  .left {
+    padding-left: 1.9rem;
+  }
+
+  .checks p {
+    display: block;
+    font-size: 13px;
+  }
+
   .card {
-    padding: 1rem;
     border: #ccc 1px solid;
     margin: 0.7rem 0;
+  }
+
+  hr {
+    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  /* Modal */
+  .modalDialog > div {
+    width: 350px;
   }
 
   @media screen and (prefer-reduced-motion: reduce) {
