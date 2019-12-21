@@ -27,30 +27,30 @@ const Deposit = () => {
 
   return (
     <div>
-      <div id="deposit-Modal" className="modalDialog">
+      <div id='deposit-Modal' className='modalDialog'>
         <div>
-          <a href="#close" title="Close" className="close">
+          <a href='#close' title='Close' className='close'>
             X
           </a>
           <h2>Deposit</h2>
           <p>Copy the Bitcoin Account Number Below</p>
-          <div style={{ color: 'blue', fontFamily: 'Century Gothic' }}>
+          <h4 className='depo-no'>
             <Wallet />
-          </div>
-          <form className="form" onSubmit={onSubmit}>
+          </h4>
+          <form className='form' onSubmit={onSubmit}>
             <textarea
-              placeholder="Enter Prove of Payment"
+              placeholder='Enter Prove of Payment'
               style={{
                 fontFamily: 'Roboto',
                 height: '100px',
                 borderRadius: '5px'
               }}
-              name="proof"
+              name='proof'
               value={proof}
               onChange={onChange}
               required
             />
-            <input type="submit" className="btn btn-block btn-primary" />
+            <input type='submit' className='btn btn-block btn-primary' />
           </form>
         </div>
       </div>

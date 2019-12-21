@@ -42,7 +42,7 @@ const Login = props => {
   return (
     <div className='container'>
       <div className='card formL' style={StyleShadow}>
-        <h1 className='text-center'>Login To Your Account</h1>
+        <h1 className='text-center f1'>Login To Your Account</h1>
         <form
           onSubmit={onSubmit}
           className='form'
@@ -64,19 +64,21 @@ const Login = props => {
             required
             style={styleText}
           />
-          <div className='checks'>
+          <div className='checks hide-sm'>
             <input type='checkbox' name='checkbox' onChange={onChange} />
-            <p className='check'> Keep me Logged in</p>
+            <p className='check'>Keep me Logged In</p>
             <p className='check left'>
               <Link to='/forgotpassword'> Forgot Password?</Link>
             </p>
           </div>
-
           <input
             type='submit'
             className='btn btn-primary btn-block'
             style={{ borderRadius: '3px' }}
           />
+          <p className='check text-center hide-lg'>
+            <Link to='/forgotpassword'> Forgot Password?</Link>
+          </p>
         </form>
       </div>
     </div>

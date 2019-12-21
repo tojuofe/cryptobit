@@ -19,7 +19,7 @@ const Home = props => {
       <div className='container content'>
         <div className='grid-2 mb-10' id='home'>
           <div className='my-3'>
-            <h1 style={{ fontSize: '4em', color: '#476875' }}>
+            <h1 className="x-large">
               Make Up To 200% Profit On Your Bitcoin Investment In 7 Days.
             </h1>
             <p style={{ fontWeight: 'bold' }}>
@@ -41,7 +41,7 @@ const Home = props => {
               />
             </Link>
           </div>
-          <div>
+          <div className="hide-sm">
             <img src={Banner} alt='banner' />
           </div>
         </div>

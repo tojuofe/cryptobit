@@ -35,7 +35,7 @@ const Navbar = () => {
             <a href='#withdraw-Modal'>Withdraw</a>
           </li>
           <li>
-            <a href='#ticket-Modal'>Support Ticket</a>
+            <a href='#ticket-Modal'>Ticket</a>
           </li>
           <li>
             <a href='#profile-Modal'>Profile</a>
@@ -82,9 +82,9 @@ const Navbar = () => {
         <li>
           <a href='#plan'>Plan</a>
         </li>
-        <li>
+        {/* <li>
           <a href='#faq'>FAQ</a>
-        </li>
+        </li> */}
         <li>
           <Link to='/contact'>Contact</Link>
         </li>

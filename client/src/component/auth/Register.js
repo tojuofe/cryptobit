@@ -63,7 +63,7 @@ const Register = props => {
   return (
     <div className='container'>
       <div className='card formL' style={StyleShadow}>
-        <h1 className='text-center my'>Sign Up to Create a New Account</h1>
+        <h1 className='text-center my f1'>Sign Up to Create a New Account</h1>
         <form
           onSubmit={onSubmit}
           className='form'
@@ -71,7 +71,7 @@ const Register = props => {
         >
           <input
             type='text'
-            placeholder='Enter Your Name'
+            placeholder='Full Name'
             name='name'
             onChange={onChange}
             required
@@ -79,7 +79,7 @@ const Register = props => {
           />
           <input
             type='text'
-            placeholder='Enter Your Email Address'
+            placeholder='Email Address'
             name='email'
             onChange={onChange}
             required

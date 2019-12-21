@@ -64,6 +64,11 @@ img {
   width: 100%;
 }
 
+.f4 {
+  font-size: 4em;
+  color: #476875;
+}
+
 /* Modal Popup */
 .modalDialog {
   position: fixed;
@@ -186,6 +191,7 @@ img {
   font-size: 4rem;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: #476875;
 }
 
 .large {
@@ -194,9 +200,22 @@ img {
   margin-bottom: 1rem;
 }
 
+.f2 {
+  font-size: 2rem;
+}
+
+.icons {
+  font-size: 70px;
+  padding-right: 10px;
+}
+
 .lead {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+}
+
+.hide-lg {
+  display: none;
 }
 
 .text-center {
@@ -539,6 +558,11 @@ table th {
   padding-left: 12rem;
 }
 
+.depo-no {
+  color: blue;
+  font-family: 'Century Gothic';
+}
+
 .app-footer {
   flex-shrink: 0;
   padding: 34px 40px 39px;
@@ -561,6 +585,7 @@ table th {
   /* Text Styles */
   .x-large {
     font-size: 3rem;
+    color: #476875;
   }
 
   .large {
@@ -569,6 +594,10 @@ table th {
 
   .lead {
     font-size: 1rem;
+  }
+
+  .hide-lg {
+    display: block;
   }
 
   /* Navbar */
@@ -587,11 +616,11 @@ table th {
   }
 
   .formL {
-    width: 23em;
+    width: 24em;
   }
 
   .left {
-    padding-left: 1.9rem;
+    padding-left: 2.5rem;
   }
 
   .checks p {
@@ -619,5 +648,39 @@ table th {
     html {
       scroll-behavior: auto;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .f1 {
+    font-size: 1.5rem;
+  }
+
+  .f2 {
+    font-size: 1.5rem;
+  }
+
+  .formL {
+    width: 19.3rem;
+  }
+
+  .left {
+    padding-left: 1.5rem;
+  }
+
+  .icons {
+    font-size: 55px;
+    padding-right: 10px;
+  }
+
+  .depo-no {
+    color: blue;
+    font-family: 'Century Gothic';
+    font-size: 0.8rem;
+  }
+
+  /* Modal */
+  .modalDialog > div {
+    width: 300px;
   }
 }

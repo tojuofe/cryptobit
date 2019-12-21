@@ -94,7 +94,7 @@ const Contact = () => {
             onChange={onChange}
             required
           />
-          <input type="submit" className="btn btn-block btn-primary" />
+          <input type="submit" value="Submit" className="btn btn-block btn-primary" />
         </form>
       </div>
 

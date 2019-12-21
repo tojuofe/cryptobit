@@ -30,16 +30,13 @@ const UserDashboard = () => {
         >
           <div className='d-flex'>
             <h1>
-              <i
-                className='far fa-money-bill-alt primaryColor'
-                style={{ fontSize: '68px', paddingRight: '10px' }}
-              />
+              <i className='far fa-money-bill-alt primaryColor icons' />
             </h1>
             <div>
-              <h2 style={{ fontSize: '2.0em' }}>
+              <h2 className='f2'>
                 Balance: {user && user.depositwallet ? user.depositwallet : '0'}
               </h2>
-              <h3 style={{ fontWeight: 'bold' }}>Deposit Wallet</h3>
+              <h4>Deposit Wallet</h4>
             </div>
           </div>
         </div>
@@ -50,17 +47,14 @@ const UserDashboard = () => {
         >
           <div className='d-flex'>
             <h1>
-              <i
-                className='fas fa-wallet primaryColor'
-                style={{ fontSize: '70px', paddingRight: '10px' }}
-              />
+              <i className='fas fa-wallet primaryColor icons' />
             </h1>
             <div>
-              <h2 style={{ fontSize: '2.0em' }}>
+              <h2 className='f2'>
                 Balance:{' '}
                 {user && user.depositinterest ? user.depositinterest : '0'}
               </h2>
-              <h3 style={{ fontWeight: 'bold' }}>Interest Wallet</h3>
+              <h4>Interest Wallet</h4>
             </div>
           </div>
         </div>
