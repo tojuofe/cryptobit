@@ -563,6 +563,11 @@ table th {
   font-family: 'Century Gothic';
 }
 
+.fp {
+  width: 60%;
+  padding-top: 30px;
+}
+
 .app-footer {
   flex-shrink: 0;
   padding: 34px 40px 39px;
@@ -586,6 +591,11 @@ table th {
   .x-large {
     font-size: 3rem;
     color: #476875;
+  }
+
+  .fp {
+    width: 80%;
+    padding-top: 30px;
   }
 
   .large {
@@ -654,6 +664,15 @@ table th {
 @media (max-width: 480px) {
   .f1 {
     font-size: 1.5rem;
+  }
+
+  .fp-font {
+    font-size: 1.3rem;
+  }
+
+  .fp {
+    width: 100%;
+    padding-top: 50px;
   }
 
   .f2 {

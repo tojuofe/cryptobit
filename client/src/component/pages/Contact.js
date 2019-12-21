@@ -74,14 +74,14 @@ const Contact = () => {
           <div className="grid-2">
             <input
               type="text"
-              placeholder="Enter Your Name"
+              placeholder="Full Name"
               name="name"
               onChange={onChange}
               required
             />
             <input
               type="email"
-              placeholder="Enter Your Email Address"
+              placeholder="Email Address"
               name="email"
               onChange={onChange}
               required

@@ -32,18 +32,18 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="container" style={{ width: '50%', paddingTop: '30px' }}>
-      <h2>Forgot Password</h2>
-      <form className="form" onSubmit={onSubmit}>
+    <div className='container fp'>
+      <h2 className='fp-font'>Forgot Password</h2>
+      <form className='form' onSubmit={onSubmit}>
         <input
-          type="email"
-          placeholder="Email Address"
-          name="email"
+          type='email'
+          placeholder='Email Address'
+          name='email'
           value={email}
           onChange={onChange}
           required
         />
-        <input type="submit" className="btn btn-block btn-primary" />
+        <input type='submit' className='btn btn-block btn-primary' />
       </form>
     </div>
   );

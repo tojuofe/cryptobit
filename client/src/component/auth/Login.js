@@ -62,6 +62,7 @@ const Login = props => {
             name='password'
             onChange={onChange}
             required
+            minLength='6'
             style={styleText}
           />
           <div className='checks hide-sm'>

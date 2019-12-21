@@ -99,6 +99,7 @@ const Register = props => {
             name='password'
             onChange={onChange}
             required
+            minLength='6'
             style={styleText}
           />
           <input
@@ -107,6 +108,7 @@ const Register = props => {
             name='password1'
             onChange={onChange}
             required
+            minLength='6'
             style={styleText}
           />
           <div style={{ display: 'flex' }}>
