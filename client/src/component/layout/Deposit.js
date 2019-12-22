@@ -33,7 +33,7 @@ const Deposit = () => {
             X
           </a>
           <h2>Deposit</h2>
-          <p>Copy the Bitcoin Account Number Below</p>
+          <p>Copy the Bitcoin Number Below</p>
           <h4 className='depo-no'>
             <Wallet />
           </h4>
