@@ -50,9 +50,7 @@ router.post(
 
           const auth = {
             auth: {
-              api_key: 'f6ed1923558b18834f99a51006b8fef5-af6c0cec-2fb05069',
-              domain: 'sandbox876cae9a2b6d4ab6924040adea476266.mailgun.org'
-            }
+              
           };
           const transporter = nodemailer.createTransport(mailGun(auth));
 
